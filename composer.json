@@ -8,5 +8,13 @@
             "email": "benjaminfranzke@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "typo3/cms": "8.5.*"
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": "web"
+        }
+    }
 }
