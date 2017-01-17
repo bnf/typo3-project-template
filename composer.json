@@ -1,6 +1,7 @@
 {
-    "name": "bnf/typo3-distribution",
-    "description": "TYPO3 CMS Distribution using giddyup deployment",
+    "name": "bnf/typo3-base-project",
+    "type": "project",
+    "description": "TYPO3 CMS base project (using git-push deployment)",
     "license": "GPL-2.0+",
     "authors": [
         {
