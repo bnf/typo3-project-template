@@ -3,12 +3,12 @@
 ## Installation
 
 ```sh
-composer create-project bnf/typo3-project:dev-master foo-project
+composer create-project bnf/typo3-project:dev-master foo-project --keep-vcs
 cd foo-project/
-git rm README.md && git commit -m "Remove README.md from template"
+git rm README.md && git add composer.lock && git commit -m "Create foo-project from bnf/typo3-project"
 vendor/bin/typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
-php -S 127.0.0.1:8888 -t web
-xdg-open https://127.0.0.1:8888/typo3
+php -S 127.0.0.1:3000 -t web
+xdg-open http://127.0.0.1:3000/typo3
 ```
 
 ## Deployment setup
