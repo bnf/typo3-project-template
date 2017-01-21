@@ -1,0 +1,17 @@
+{
+    "name": "bnf/site",
+    "type": "typo3-cms-extension",
+    "description": "Site extension",
+    "license": "GPL-2.0+",
+    "require": {
+        "typo3/cms-core": "^7.6.0 || >=8.5 <8.6",
+        "qbus/autoflush": "^1.3.1",
+        "qbus/skip-page-is-being-generated": "^1.1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bnf\\Site\\": "Classes"
+        }
+    }
+}
+
