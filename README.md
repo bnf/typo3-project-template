@@ -8,7 +8,14 @@ cd foo-project/
 # TODO: change vendor name in composer.json
 git rm README.md && git add composer.lock && git commit -m "Initialize foo-project"
 vendor/bin/typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
+# Add LocalConfiguration.php to git – attention this commits your db password and the
+# encryption key to git, you may want to move them to environment variables first
+git add web/typo3conf/LocalConfiguration.php && git commit -m "Add initial configuration"
+
+# Now run a test server with
 php -S 127.0.0.1:3000 -t web
+
+# And open the TYPP3 backend in your browser
 xdg-open http://127.0.0.1:3000/typo3
 ```
 
