@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# This hook script is to be executed by a git "update" hook used for deployment:
+# https://raw.githubusercontent.com/bnf/giddyup/master/update-hook
+#
+# It is executed after the deployed version is activated (symlinked from "current")
+# That means this script may operate on the live database.
+
+# If the server is using fastcgi, specifiy the fcgi socket here (used for opcache clearing)
+fcgi_path=/run/php-fpm/fcgi.sock
+
+[[ -w "$fcgi_path" ]] && ${ROOT}/vendor/bin/cachetool opcache:reset --fcgi=$fcgi_path
+
+# flush cached if we've a configured installation
+[[ -e "${ROOT}/shared/web/typo3conf/LocalConfiguration.php" ]] && ${ROOT}/vendor/bin/typo3cms cache:flush
