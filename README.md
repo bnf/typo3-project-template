@@ -8,7 +8,7 @@ cd foo-project/
 # TODO: change vendor name in composer.json
 git rm README.md && git add composer.lock && git commit -m "Initialize foo-project"
 vendor/bin/typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
-# Add LocalConfiguration.php to git – attention this commits your db password and the
+# Add LocalConfiguration.php to git – attention! this commits your db password and the
 # encryption key to git, you may want to move them to environment variables first
 git add web/typo3conf/LocalConfiguration.php && git commit -m "Add initial configuration"
 
