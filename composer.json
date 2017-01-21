@@ -40,6 +40,20 @@
         "helhum/typo3-console": "^4.1.1",
         "gordalina/cachetool": "^2.1"
     },
+    "scripts": {
+        "package-states": [
+            "mkdir -p web/typo3conf",
+            "# --remove-inactive may be passed optionally to generatepackagestates, to save some space.",
+            "@php vendor/bin/typo3cms install:generatepackagestates > /dev/null"
+        ],
+        "folder-structure": [
+            "@php vendor/bin/typo3cms install:fixfolderstructure > /dev/null"
+        ],
+        "post-autoload-dump": [
+            "@package-states",
+            "@folder-structure"
+        ]
+    },
     "extra": {
         "typo3/cms": {
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
