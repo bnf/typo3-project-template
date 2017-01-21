@@ -3,9 +3,10 @@
 ## Installation
 
 ```sh
-composer create-project bnf/typo3-project:dev-master foo-project --keep-vcs
+composer create-project bnf/typo3-project-template:dev-master foo-project --keep-vcs
 cd foo-project/
-git rm README.md && git add composer.lock && git commit -m "Create foo-project from bnf/typo3-project"
+# TODO: change vendor name in composer.json
+git rm README.md && git add composer.lock && git commit -m "Initialize foo-project"
 vendor/bin/typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
 php -S 127.0.0.1:3000 -t web
 xdg-open http://127.0.0.1:3000/typo3

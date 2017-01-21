@@ -1,5 +1,5 @@
 {
-    "name": "bnf/typo3-project",
+    "name": "bnf/typo3-project-template",
     "type": "project",
     "description": "TYPO3 CMS skeleton project (using git-push deployment)",
     "license": "GPL-2.0+",
