@@ -9,12 +9,9 @@
 
 cd "${RELEASE}"
 
-mkdir -p ${ROOT}/shared/web/fileadmin
+mkdir -p web/fileadmin web/uploads web/typo3conf/l10n
 share web/fileadmin
-mkdir -p ${ROOT}/shared/web/uploads
 share web/uploads
-
-mkdir -p ${ROOT}/shared/web/typo3conf/l10n
 share web/typo3conf/l10n
 share web/typo3conf/LocalConfiguration.php
 
