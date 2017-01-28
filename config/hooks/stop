@@ -3,7 +3,7 @@
 # This hook script is to be executed by a git "update" hook used for deployment:
 # https://raw.githubusercontent.com/bnf/giddyup/master/update-hook
 #
-# It is executed after the deployed version is checked out to a new folder, 
+# It is executed after the deployed version is checked out to a new folder,
 # but before the new version is activated (symlinked from "current").
 # We use this script to prepare the new installation (composer install)
 
