@@ -9,7 +9,7 @@
 # If the server is using fastcgi, specifiy the fcgi socket here (used for opcache clearing)
 FCGI_PATH=/run/php-fpm/fcgi.sock
 
-[[ -w "$FCGI_PATH" ]] && ${RELEASE}/vendor/bin/cachetool opcache:reset --fcgi=$FCGI_PATH
+[[ -w "$FCGI_PATH" ]] && ${RELEASE}/vendor/bin/cachetool opcache:reset --fcgi=$FCGI_PATH || true
 
 # flush cached if we've a configured installation
-[[ -e "${RELEASE}/web/typo3conf/LocalConfiguration.php" ]] && ${RELEASE}/vendor/bin/typo3cms cache:flush
+[[ -e "${RELEASE}/web/typo3conf/LocalConfiguration.php" ]] && ${RELEASE}/vendor/bin/typo3cms cache:flush || true
