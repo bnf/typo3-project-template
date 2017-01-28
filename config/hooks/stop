@@ -7,6 +7,8 @@
 # but before the new version is activated (symlinked from "current").
 # We use this script to prepare the new installation (composer install)
 
+cd "${RELEASE}"
+
 mkdir -p ${ROOT}/shared/web/fileadmin
 share web/fileadmin
 mkdir -p ${ROOT}/shared/web/uploads

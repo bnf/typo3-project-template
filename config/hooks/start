@@ -6,6 +6,8 @@
 # It is executed after the deployed version is activated (symlinked from "current")
 # That means this script may operate on the live database.
 
+cd "${RELEASE}"
+
 # If the server is using fastcgi, specifiy the fcgi socket here (used for opcache clearing)
 fcgi_path=/run/php-fpm/fcgi.sock
 
