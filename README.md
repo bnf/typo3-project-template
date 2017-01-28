@@ -26,8 +26,8 @@ and reliable deployment in a git hook (features symlink rotation and shared dire
 
 ```sh
 # Set to your servers hostname and path
-export REMOTE_HOST=user@remotehost
-export REMOTE_PATH=path/to/root
+REMOTE_HOST=user@remotehost
+REMOTE_PATH=path/to/root
 
 ssh $REMOTE_HOST "mkdir -p $REMOTE_PATH && git init --bare $REMOTE_PATH/repo && curl -s https://raw.githubusercontent.com/bnf/giddyup/master/update-hook > $REMOTE_PATH/repo/hooks/update && chmod +x $REMOTE_PATH/repo/hooks/update"
 git remote add production $REMOTE_HOST:$REMOTE_PATH/repo
