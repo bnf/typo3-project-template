@@ -41,3 +41,13 @@ and from now on deploy with:
 ```sh
 git push production
 ```
+
+## TODO
+
+Consider not clearing apcu/opcache caches but suggest to use realpath on the
+webserver docroot to make the racy opcache/apcu/realpath cache clearing unnecessary.
+
+See:
+
+ - http://www.serverphorums.com/read.php?7,1233612,1233732#msg-1233732
+ - https://codeascraft.com/2013/07/01/atomic-deploys-at-etsy/
