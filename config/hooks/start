@@ -12,5 +12,4 @@ FCGI_PATH=/run/php-fpm.sock
 [[ -w "$FCGI_PATH" ]] && ${RELEASE}/vendor/bin/cachetool opcache:reset --fcgi=$FCGI_PATH || true
 [[ -w "$FCGI_PATH" ]] && ${RELEASE}/vendor/bin/cachetool apcu:cache:clear --fcgi=$FCGI_PATH || true
 
-# flush cached if we've a configured installation
-[[ -e "${RELEASE}/web/typo3conf/LocalConfiguration.php" ]] && ${RELEASE}/vendor/bin/typo3cms cache:flush || true
+${RELEASE}/vendor/bin/typo3cms cache:flush
