@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-composer create-project bnf/typo3-project-template:dev-master foo-project --keep-vcs
+composer create-project --keep-vcs bnf/typo3-project-template:dev-master foo-project
 cd foo-project/
 # TODO: change vendor name in composer.json
 git rm README.md && git add composer.lock && git commit -m "Initialize foo-project"
