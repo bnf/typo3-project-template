@@ -27,5 +27,5 @@ else
 	COMPOSER=./composer.phar
 fi
 
-$COMPOSER install --no-dev --ansi --no-interaction --no-progress --optimize-autoloader --classmap-authoritative
+$COMPOSER install --no-dev --ansi --no-interaction --no-progress --optimize-autoloader --classmap-authoritative --prefer-dist
 vendor/bin/typo3cms extension:setupactive
