@@ -35,12 +35,19 @@ and reliable deployment in a git hook (features symlink rotation and shared dire
 # Set to your servers hostname and path
 REMOTE_HOST=user@remotehost
 REMOTE_PATH=path/to/root
+REMOTE_DB=whatever_prod
 
 ssh $REMOTE_HOST "mkdir -p $REMOTE_PATH && git init --bare $REMOTE_PATH/repo && curl -s https://raw.githubusercontent.com/bnf/giddyup/master/update-hook > $REMOTE_PATH/repo/hooks/update && chmod +x $REMOTE_PATH/repo/hooks/update"
 git remote add production $REMOTE_HOST:$REMOTE_PATH/repo
 
-# Now let your production vhost point to $REMOTE_PATH/current/web
-# TODO: initial upload of database, fileadmin/ and uploads/
+# Upload shared content
+rsync  -az -e ssh --verbose --include 'web/' --include 'web/fileadmin/***' --include='web/uploads/***' --include='web/typo3conf/' --include='web/typo3conf/l10n/' --include='web/typo3conf/l10n/***'  --exclude='*' ./ $REMOTE_HOST:$REMOTE_PATH/shared/
+
+# Upload database
+./vendor/bin/typo3cms database:export | ssh $REMOTE_HOST "mysql $REMOTE_DB"
+
+# Initial code upload
+git push production
 ```
 
 and from now on deploy with:
