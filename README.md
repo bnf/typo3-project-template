@@ -50,7 +50,7 @@ rsync  -az -e ssh --verbose --include 'web/' --include 'web/fileadmin/***' --inc
 git push production
 ```
 
-and from now on deploy with:
+Now point your webserver's document root to $REMOTE\_PATH/current/web and from now on deploy with:
 
 ```sh
 git push production
