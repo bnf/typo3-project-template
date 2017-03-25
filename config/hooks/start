@@ -6,10 +6,4 @@
 # It is executed after the deployed version is activated (symlinked from "current")
 # That means this script may operate on the live database.
 
-# If the server is using fastcgi, specifiy the fcgi socket here (used for opcache clearing)
-FCGI_PATH=/run/php-fpm.sock
-
-test -w "$FCGI_PATH" && ${RELEASE}/vendor/bin/cachetool opcache:reset --fcgi=$FCGI_PATH || true
-test -w "$FCGI_PATH" && ${RELEASE}/vendor/bin/cachetool apcu:cache:clear --fcgi=$FCGI_PATH || true
-
 ${RELEASE}/vendor/bin/typo3cms cache:flush

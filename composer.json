@@ -41,7 +41,6 @@
         "typo3/cms-t3editor": "^8.6",
 
         "helhum/typo3-console": "^4.1.1",
-        "gordalina/cachetool": "^2.1",
         "bnf/site": "dev-master"
     },
     "scripts": {
