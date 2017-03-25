@@ -40,6 +40,9 @@ REMOTE_DB=whatever_prod
 ssh $REMOTE_HOST "mkdir -p $REMOTE_PATH && git init --bare $REMOTE_PATH/repo && curl -s https://raw.githubusercontent.com/bnf/giddyup/master/update-hook > $REMOTE_PATH/repo/hooks/update && chmod +x $REMOTE_PATH/repo/hooks/update"
 git remote add production $REMOTE_HOST:$REMOTE_PATH/repo
 
+# Optional: In case you're using php-fpm with a custom socket path, configure the hook to use the correct fpm socket
+ssh $REMOTE_HOST "git --git-dir=$REMOTE_PATH/repo config giddyup.fcgi-socket /run/php70-fpm-foo.sock"
+
 # Upload shared content
 rsync  -az -e ssh --verbose --include 'web/' --include 'web/fileadmin/***' --include='web/uploads/***' --include='web/typo3conf/' --include='web/typo3conf/l10n/' --include='web/typo3conf/l10n/***'  --exclude='*' ./ $REMOTE_HOST:$REMOTE_PATH/shared/
 
