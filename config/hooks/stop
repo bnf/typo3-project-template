@@ -11,6 +11,10 @@ COMPOSER_VERSION=1.3.1
 
 cd "${RELEASE}"
 
+# This is not required, but nice for debugging to know which release
+# belongs to which git sha1 (as that information would be lost otherwise).
+echo "${NEWREV}" > SHA1
+
 mkdir -p web/fileadmin web/uploads web/typo3conf/l10n
 share web/fileadmin
 share web/uploads
