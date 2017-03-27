@@ -6,8 +6,6 @@
 # It is executed after the deployed version is activated (symlinked from "current")
 # That means this script may operate on the live database.
 
-${RELEASE}/vendor/bin/typo3cms cache:flush
-
 # In theory opcache clearing shouldn't be required as we're
 # using a static docroot in vendor/autoload.php,
 # but opcache seems to cache the entrypoint (e.g. web/index.php).
@@ -15,3 +13,5 @@ ${RELEASE}/vendor/bin/typo3cms cache:flush
 local FCGI_SOCKET="$(get_config fcgi-socket)"
 FCGI_SOCKET="${FCGI_SOCKET:-/run/php/php7.0-fpm.sock}"
 test -w "${FCGI_SOCKET}" && ${RELEASE}/vendor/bin/cachetool opcache:reset --fcgi "${FCGI_SOCKET}" || true
+
+${RELEASE}/vendor/bin/typo3cms cache:flush
