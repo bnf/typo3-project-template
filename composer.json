@@ -66,5 +66,8 @@
         "helhum/typo3-console": {
             "install-extension-dummy": false
         }
+    },
+    "autoload": {
+        "files": ["config/static-docroot.php"]
     }
 }
