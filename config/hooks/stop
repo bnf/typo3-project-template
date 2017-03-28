@@ -15,10 +15,9 @@ cd "${RELEASE}"
 # belongs to which git sha1 (as that information would be lost otherwise).
 echo "${NEWREV}" > SHA1
 
-mkdir -p web/fileadmin web/uploads web/typo3conf/l10n
+mkdir -p web/fileadmin web/uploads
 share web/fileadmin
 share web/uploads
-share web/typo3conf/l10n
 
 
 if [ "`composer --version 2>/dev/null | cut -d ' ' -f 3`" = "$COMPOSER_VERSION" ]
