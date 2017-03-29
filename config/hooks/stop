@@ -24,6 +24,15 @@ mkdir -p web/fileadmin web/uploads
 share web/fileadmin
 share web/uploads
 
+# Share paths where generates resources are stored
+# (as deployment may happen between resource generation and download, in that situation
+# non shared resources would happen in unavailable resources)
+for d in logs pics online_media sprites _processed_ GraphicalAssets GB Assets compressor RteHtmlArea Language locks swap_locking
+do
+	mkdir -p "web/typo3temp/${d}"
+	share "web/typo3temp/${d}"
+done
+
 
 if [ "`composer --version 2>/dev/null | cut -d ' ' -f 3`" = "$COMPOSER_VERSION" ]
 then
