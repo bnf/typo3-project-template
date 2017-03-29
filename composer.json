@@ -1,6 +1,7 @@
 {
     "repositories": [
-        { "type": "path", "url": "./site" }
+        { "type": "path", "url": "./site" },
+        { "type": "path", "url": "./packages/*/" }
     ],
     "name": "bnf/typo3-project-template",
     "type": "project",
