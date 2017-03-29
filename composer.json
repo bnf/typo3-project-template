@@ -43,7 +43,7 @@
         "helhum/typo3-console": "^4.1.1",
         "gordalina/cachetool": "^2.1",
         "bnf/static-docroot": "^1.0",
-        "bnf/site": "dev-master"
+        "bnf/site": "@dev"
     },
     "scripts": {
         "package-states": [
