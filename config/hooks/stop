@@ -36,33 +36,4 @@ else
 fi
 
 $COMPOSER install --no-dev --ansi --no-interaction --no-progress --optimize-autoloader --classmap-authoritative --prefer-dist
-
-# Statically render the realpath of the DOCUMENT_ROOT into vendor/autoload.php
-# to prevent symlink related realpath cache issues.
-sed -i -f - vendor/autoload.php << EOF
-1a\
-\$setenv = function (\$name, \$value = null) {\n\
-    // If PHP is running as an Apache module and an existing\n\
-    // Apache environment variable exists, overwrite it\n\
-    if (function_exists('apache_getenv') && function_exists('apache_setenv') && apache_getenv(\$name)) {\n\
-        apache_setenv(\$name, \$value);\n\
-    }\n\
-\n\
-    if (function_exists('putenv')) {\n\
-        putenv("\$name=\$value");\n\
-    }\n\
-\n\
-    \$_ENV[\$name] = \$value;\n\
-    \$_SERVER[\$name] = \$value;\n\
-};\n\
-\n\
-// Statically set DOCUMENT_ROOT to the realpath of the current release.\n\
-// This is to prevent symlink related realpath cache issues (using an old\n\
-// release, although a new one is available) and prevents using files\n\
-// from different releases during one request.\n\
-\$setenv('DOCUMENT_ROOT', dirname(__DIR__) . '/web');\n\
-\$setenv('SCRIPT_FILENAME', dirname(__DIR__) . '/web' . \$_SERVER['SCRIPT_NAME']);\n\
-unset(\$setenv);
-EOF
-
 vendor/bin/typo3cms extension:setupactive
