@@ -19,3 +19,7 @@ if ($home . '/.my.cnf') {
     }
 }
 unset($home);
+
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask'] = '0640';
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask'] = '0750';
