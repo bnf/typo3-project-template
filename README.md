@@ -8,9 +8,6 @@ cd foo-project/
 composer config name your-vendor/foo-site-name
 git rm README.md && git add composer.lock && git commit -m "Initialize foo-project"
 vendor/bin/typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
-# do not store DB credentials in GIT
-./vendor/bin/typo3cms configuration:remove --force DB/Connections/Default/user
-./vendor/bin/typo3cms configuration:remove --force DB/Connections/Default/password
 # Add LocalConfiguration.php to git
 git add web/typo3conf/LocalConfiguration.php && git commit -m "Add initial configuration"
 
