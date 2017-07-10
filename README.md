@@ -5,7 +5,7 @@
 ```sh
 composer create-project --keep-vcs bnf/typo3-project-template:dev-master foo-project
 cd foo-project/
-# TODO: change vendor name in composer.json
+composer config name your-vendor/foo-site-name
 git rm README.md && git add composer.lock && git commit -m "Initialize foo-project"
 vendor/bin/typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
 # do not store DB credentials in GIT
