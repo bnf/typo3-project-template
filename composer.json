@@ -54,6 +54,12 @@
         "folder-structure": [
             "@php vendor/bin/typo3cms install:fixfolderstructure > /dev/null"
         ],
+        "git-setup": [
+            "git remote set-url production `composer config extra.remote.production` 2>/dev/null || git remote add production `composer config extra.remote.production`"
+        ],
+        "init-production": [
+            "@php init-production.php"
+        ],
         "post-autoload-dump": [
             "@package-states",
             "@folder-structure"
@@ -66,6 +72,9 @@
         },
         "helhum/typo3-console": {
             "install-extension-dummy": false
+        },
+        "remote": {
+            "production": "TODO: Add production git url here. e.g. ssh://user@example.com:22/home/user/production/repo"
         }
     }
 }
