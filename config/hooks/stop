@@ -27,7 +27,9 @@ share web/uploads
 # Share paths where generates resources are stored
 # (as deployment may happen between resource generation and download, in that situation
 # non shared resources would happen in unavailable resources)
-for d in logs pics online_media sprites _processed_ GraphicalAssets GB Assets compressor RteHtmlArea Language locks swap_locking
+
+# TODO: add cmdline tool to generate var/charset/ files before switching to live
+for d in assets var/charset var/InstallToolSessions var/locks var/logs var/swap_locking
 do
 	mkdir -p "web/typo3temp/${d}"
 	share "web/typo3temp/${d}"
