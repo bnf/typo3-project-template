@@ -11,11 +11,6 @@ vendor/bin/typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
 # Add LocalConfiguration.php to git
 git add web/typo3conf/LocalConfiguration.php && git commit -m "Add initial configuration"
 
-# prevent notice in install (that systemLocale is not set)
-vendor/bin/typo3cms configuration:set SYS/UTF8filesystem true
-vendor/bin/typo3cms configuration:set SYS/systemLocale de_DE.UTF-8
-git commit -a -m "Enable UTF-8 filesystem"
-
 # Now run a test server with
 php -S 127.0.0.1:3000 -t web
 

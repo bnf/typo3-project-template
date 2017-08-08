@@ -23,3 +23,8 @@ unset($home);
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask'] = '0640';
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask'] = '0750';
+
+// Enable UTF-8 Filesystem (and implicitly prevent the notice in
+// the install tool, that systemLocale is not set)
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale'] = 'C.UTF-8';
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem'] = true;
