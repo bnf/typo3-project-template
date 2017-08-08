@@ -1,9 +1,9 @@
-vendor
-web/index.php
-web/typo3
-web/typo3temp
-web/fileadmin
-web/uploads
+/vendor
+/web/index.php
+/web/typo3
+/web/typo3temp
+/web/fileadmin
+/web/uploads
 
 /web/typo3conf/*
 !/web/typo3conf/LocalConfiguration.php
