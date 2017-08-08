@@ -41,7 +41,7 @@ git remote add production $REMOTE_HOST:$REMOTE_PATH/repo
 ssh $REMOTE_HOST "git --git-dir=$REMOTE_PATH/repo config giddyup.fcgi-socket /run/php70-fpm-foo.sock"
 
 # Upload shared content
-rsync  -az -e ssh --verbose --include 'web/' --include 'web/fileadmin/***' --include='web/uploads/***' --include='web/typo3conf/' --include='web/typo3conf/l10n/' --include='web/typo3conf/l10n/***'  --exclude='*' ./ $REMOTE_HOST:$REMOTE_PATH/shared/
+rsync  -az -e ssh --verbose --include 'web/' --include 'web/fileadmin/***' --include='web/uploads/***' --exclude='*' ./ $REMOTE_HOST:$REMOTE_PATH/shared/
 
 # Upload database
 ./vendor/bin/typo3cms database:export | ssh $REMOTE_HOST "mysql $REMOTE_DB"
