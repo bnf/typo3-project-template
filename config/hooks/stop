@@ -47,4 +47,4 @@ else
 fi
 
 $COMPOSER install --no-dev --ansi --no-interaction --no-progress --optimize-autoloader --classmap-authoritative --prefer-dist
-vendor/bin/typo3cms extension:setupactive
+test -e "${RELEASE}/web/typo3conf/LocalConfiguration.php" && vendor/bin/typo3cms extension:setupactive || true

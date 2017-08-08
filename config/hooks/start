@@ -14,4 +14,4 @@ local FCGI_SOCKET="$(get_config fcgi-socket)"
 FCGI_SOCKET="${FCGI_SOCKET:-/run/php/php7.0-fpm.sock}"
 test -w "${FCGI_SOCKET}" && ${RELEASE}/vendor/bin/cachetool opcache:reset --fcgi "${FCGI_SOCKET}" || true
 
-${RELEASE}/vendor/bin/typo3cms cache:flush
+test -e "${RELEASE}/web/typo3conf/LocalConfiguration.php" && ${RELEASE}/vendor/bin/typo3cms cache:flush || true
