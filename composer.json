@@ -49,11 +49,10 @@
         "typo3cms": "@php vendor/helhum/typo3-console/Scripts/typo3cms",
         "package-states": [
             "mkdir -p web/typo3conf",
-            "# --remove-inactive may be passed optionally to generatepackagestates, to save some space.",
-            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:generatepackagestates > /dev/null"
+            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:generatepackagestates"
         ],
         "folder-structure": [
-            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:fixfolderstructure > /dev/null"
+            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:fixfolderstructure"
         ],
         "extension-setup": [
             "@php vendor/helhum/typo3-console/Scripts/typo3cms install:extensionsetupifpossible"
