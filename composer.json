@@ -55,9 +55,13 @@
         "folder-structure": [
             "@php vendor/helhum/typo3-console/Scripts/typo3cms install:fixfolderstructure > /dev/null"
         ],
+        "extension-setup": [
+            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:extensionsetupifpossible"
+        ],
         "post-autoload-dump": [
             "@package-states",
-            "@folder-structure"
+            "@folder-structure",
+            "@extension-setup"
         ]
     },
     "extra": {
