@@ -7,7 +7,7 @@ composer create-project --keep-vcs bnf/typo3-project-template:dev-master foo-pro
 cd foo-project/
 composer config name your-vendor/foo-site-name
 git rm README.md && git add composer.lock && git commit -m "Initialize foo-project"
-vendor/bin/typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
+composer typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
 # Add LocalConfiguration.php to git
 git add web/typo3conf/LocalConfiguration.php && git commit -m "Add initial configuration"
 
