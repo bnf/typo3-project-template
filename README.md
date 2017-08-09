@@ -12,10 +12,7 @@ composer typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
 git add web/typo3conf/LocalConfiguration.php && git commit -m "Add initial configuration"
 
 # Now run a test server with
-php -S 127.0.0.1:3000 -t web
-
-# And open the TYPP3 backend in your browser
-xdg-open http://127.0.0.1:3000/typo3
+composer run --timeout=0 dev-server
 ```
 
 ## Deployment setup
