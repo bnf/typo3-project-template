@@ -14,6 +14,7 @@
         }
     ],
     "require": {
+        "bnf/site": "@dev",
         "typo3/cms": "^8.7",
 
         "typo3/cms-about": "^8.7",
@@ -42,8 +43,7 @@
         "typo3/cms-t3editor": "^8.7",
 
         "helhum/typo3-console": "^4.4.0",
-        "gordalina/cachetool": "^2.1",
-        "bnf/site": "@dev"
+        "gordalina/cachetool": "^2.1"
     },
     "scripts": {
         "typo3cms": "@php vendor/helhum/typo3-console/Scripts/typo3cms",
