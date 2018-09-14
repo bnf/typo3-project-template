@@ -1,11 +1,16 @@
 /vendor
-/web/index.php
-/web/typo3
-/web/typo3temp
-/web/fileadmin
-/web/uploads
+/public/index.php
+/public/typo3
+/public/fileadmin
+/public/uploads
 
-/web/typo3conf/*
-!/web/typo3conf/LocalConfiguration.php
-!/web/typo3conf/AdditionalConfiguration.php
-!/web/typo3conf/l10n
+/public/typo3temp
+/var
+
+/public/FIRST_INSTALL
+/public/typo3conf/ENABLE_INSTALL_TOOL
+
+/public/typo3conf/*
+!/public/typo3conf/LocalConfiguration.php
+!/public/typo3conf/AdditionalConfiguration.php
+!/public/typo3conf/l10n

@@ -15,65 +15,42 @@
     ],
     "require": {
         "bnf/site": "@dev",
-        "typo3/cms": "^8.7",
 
-        "typo3/cms-about": "^8.7",
-        "typo3/cms-belog": "^8.7",
-        "typo3/cms-beuser": "^8.7",
-        "typo3/cms-context-help": "^8.7",
-        "typo3/cms-documentation": "^8.7",
-        "typo3/cms-felogin": "^8.7",
-        "typo3/cms-filelist": "^8.7",
-        "typo3/cms-fluid-styled-content": "^8.7",
-        "typo3/cms-form": "^8.7",
-        "typo3/cms-func": "^8.7",
-        "typo3/cms-impexp": "^8.7",
-        "typo3/cms-info": "^8.7",
-        "typo3/cms-info-pagetsconfig": "^8.7",
-        "typo3/cms-lowlevel": "^8.7",
-        "typo3/cms-reports": "^8.7",
-        "typo3/cms-rsaauth": "^8.7",
-        "typo3/cms-rte-ckeditor": "^8.7",
-        "typo3/cms-setup": "^8.7",
-        "typo3/cms-tstemplate": "^8.7",
-        "typo3/cms-viewpage": "^8.7",
-        "typo3/cms-wizard-crpages": "^8.7",
-        "typo3/cms-wizard-sortpages": "^8.7",
-        "typo3/cms-sys-note": "^8.7",
-        "typo3/cms-t3editor": "^8.7",
-
-        "helhum/typo3-console": "^4.4.0",
-        "gordalina/cachetool": "^2.1"
+        "typo3/cms-about": "^9.5",
+        "typo3/cms-belog": "^9.5",
+        "typo3/cms-beuser": "^9.5",
+        "typo3/cms-context-help": "^9.5",
+        "typo3/cms-felogin": "^9.5",
+        "typo3/cms-filelist": "^9.5",
+        "typo3/cms-fluid-styled-content": "^9.5",
+        "typo3/cms-form": "^9.5",
+        "typo3/cms-impexp": "^9.5",
+        "typo3/cms-info": "^9.5",
+        "typo3/cms-info-pagetsconfig": "^9.5",
+        "typo3/cms-lowlevel": "^9.5",
+        "typo3/cms-reports": "^9.5",
+        "typo3/cms-rsaauth": "^9.5",
+        "typo3/cms-rte-ckeditor": "^9.5",
+        "typo3/cms-setup": "^9.5",
+        "typo3/cms-tstemplate": "^9.5",
+        "typo3/cms-viewpage": "^9.5",
+        "typo3/cms-wizard-crpages": "^9.5",
+        "typo3/cms-wizard-sortpages": "^9.5",
+        "typo3/cms-sys-note": "^9.5",
+        "typo3/cms-t3editor": "^9.5",
+        "typo3/cms-install": "^9.5"
     },
     "scripts": {
-        "typo3cms": "@php vendor/helhum/typo3-console/Scripts/typo3cms",
-        "package-states": [
-            "mkdir -p web/typo3conf",
-            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:generatepackagestates"
-        ],
-        "folder-structure": [
-            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:fixfolderstructure"
-        ],
-        "extension-setup": [
-            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:extensionsetupifpossible"
-        ],
-        "post-autoload-dump": [
-            "@package-states",
-            "@folder-structure",
-            "@extension-setup"
-        ],
         "dev-server": [
             "# DEV server running on http://127.0.0.1:3000/",
             "@php -S 127.0.0.1:3000 -t web"
         ]
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "typo3/cms": {
-            "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "web-dir": "web"
-        },
-        "helhum/typo3-console": {
-            "install-extension-dummy": false
+            "web-dir": "public"
         }
     }
 }

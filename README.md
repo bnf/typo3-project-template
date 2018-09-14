@@ -7,12 +7,16 @@ composer create-project --keep-vcs bnf/typo3-project-template:dev-master foo-pro
 cd foo-project/
 composer config name your-vendor/foo-site-name
 git rm README.md && git add composer.lock && git commit -m "Initialize foo-project"
-composer typo3cms install:setup --site-setup-type=site --site-name "Foo Site"
-# Add LocalConfiguration.php to git
-git add web/typo3conf/LocalConfiguration.php && git commit -m "Add initial configuration"
 
 # Now run a test server with
 composer run --timeout=0 dev-server
+
+touch public/FIRST_INSTALL
+# Run through install tool
+xdg-open http://127.0.0.1/typo3/install.php
+
+# Add LocalConfiguration.php to git
+git add public/typo3conf/LocalConfiguration.php && git commit -m "Add initial configuration"
 ```
 
 ## Deployment setup
@@ -33,7 +37,7 @@ git remote add production $REMOTE_HOST:$REMOTE_PATH/repo
 ssh $REMOTE_HOST "git --git-dir=$REMOTE_PATH/repo config giddyup.fcgi-socket /run/php70-fpm-foo.sock"
 
 # Upload shared content
-rsync  -az -e ssh --verbose --include 'web/' --include 'web/fileadmin/***' --include='web/uploads/***' --exclude='*' ./ $REMOTE_HOST:$REMOTE_PATH/shared/
+rsync  -az -e ssh --verbose --include 'public/' --include 'public/fileadmin/***' --include='public/uploads/***' --exclude='*' ./ $REMOTE_HOST:$REMOTE_PATH/shared/
 
 # Upload database
 ./vendor/bin/typo3cms database:export | ssh $REMOTE_HOST "mysql $REMOTE_DB"
@@ -42,7 +46,7 @@ rsync  -az -e ssh --verbose --include 'web/' --include 'web/fileadmin/***' --inc
 git push production
 ```
 
-Now point your webserver's document root to $REMOTE\_PATH/current/web and from now on deploy with:
+Now point your webserver's document root to $REMOTE\_PATH/current/public and from now on deploy with:
 
 ```sh
 git push production
