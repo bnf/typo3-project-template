@@ -22,8 +22,6 @@ $EM_CONF[$_EXTKEY] = array(
             'extbase' => '7.6',
             'fluid' => '7.6',
             'typo3' => '7.6',
-            'skip_page_is_being_generated' => '1.1.1',
-            'autoflush' => '1.3.1',
         ),
         'conflicts' => array(
         ),
