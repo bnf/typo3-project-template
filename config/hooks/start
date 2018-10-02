@@ -5,3 +5,5 @@
 #
 # It is executed after the deployed version is activated (symlinked from "current")
 # That means this script may operate on the live database.
+
+${RELEASE}/vendor/bin/typo3ctl cache:flush
